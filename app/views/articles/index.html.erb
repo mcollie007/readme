@@ -1,0 +1,22 @@
+    <div class="header">
+      <div class="container">
+        <h1>readme</h1>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <ul class="articles">
+          <% @articles.each do |a| %>
+          <li>
+            <%# gives an error %>
+            <%#= link_to "", class: "fa fa-caret-up", article_path(a), method: :put%>
+            <%#the correct way, place class after path and method type%>
+            <%= link_to "", article_path(a), method: :put, class: "fa fa-caret-up" %>
+            <span class="upvotes"> <%= a.upvotes %> </span>
+            <a class="title" href="<%= a.url %>"><%= a.title %></a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
